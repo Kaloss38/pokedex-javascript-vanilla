@@ -5,5 +5,5 @@ export default async function retrieveContent(id) {
     const response = await fetch(url);
 
     return response.json();
-  }
+}
   

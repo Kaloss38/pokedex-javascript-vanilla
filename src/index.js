@@ -8,6 +8,9 @@ async function getContent() {
 
     let count = 1;
 
+    let loader = document.getElementById('loader');
+    loader.style.display = "";
+
     while(count <= 807){
       const content = await retrieveContent(count);
       pokemons.push({
@@ -19,9 +22,9 @@ async function getContent() {
       count++;
     }
 
-    const pokedex = new Pokedex();
-
     displayContent(pokemons);
+    loader.style.display = "none";
+    
 
     } catch (e) {
     console.log('Error', e);
@@ -36,8 +39,6 @@ input.addEventListener("keyup", e => {
   let filter, article, p, txtValue;
   filter = input.value.toLowerCase();
   article = document.getElementsByTagName('article');
-  
-  
   
   for(let i = 0; i < article.length; i++) {
     p = article[i].getElementsByTagName("p")[0];
